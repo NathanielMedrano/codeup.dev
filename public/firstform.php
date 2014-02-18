@@ -1,9 +1,22 @@
+<?php
+
+echo "<p>GET:</p>";
+var_dump($_GET);
+
+echo "<p>POST:</p>";
+var_dump($_POST);
+
+?>
+
+
+
+
 <html>
 <head>
     <title>Form Page</title>
 </head>
 <h2>User Login</h2>
-<form method="POST" action="http://requestb.in/r5hg16r5">
+<form method="POST" action="">
     <p>
         <label for="username">Username</label>
         <input id="username" name="username" type="text" placeholder="Enter Username">
@@ -24,8 +37,8 @@
         <input type="text" id="first_name" name="first_name" value="" placeholder="example@you.com">
     </p>
     <p>
-        <label for="password">FROM:</label>
-        <input id="password" name="password" type="password" placeholder="example@me.com">
+        <label for="email">FROM:</label>
+        <input id="email" name="email" type="email" placeholder="example@me.com">
     </p>
      <p>
         <label for="username">SUBJECT:</label>
@@ -65,4 +78,14 @@
     </p>
     </p>
 </form>
+
+    <h2>Select Testing</h2>
+
+<form>
+
+</form><label for="question">Did you have a nice day? </label>
+    <select id="question" name="question">
+    <option value="1">Yes</option>
+    <option value="2">No</option>
+</select>
 </html>
