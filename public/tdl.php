@@ -17,42 +17,67 @@ function addfile($alpha, &$array) {
 
     }
 
+function get_input($input) {
+      
+  
+        return trim(fgets($input));
+    
+}
 
+
+function save($array, $file) {
+
+    if ($file) {
+        $handle = fopen($file, 'w');
+
+        foreach ($array as $key => $value) {
+            fwrite($handle, PHP_EOL . $value);
+        }    
+    }
+
+}
+
+
+       if (isset($_POST['newitem'])) {
+            $item = $_POST['newitem'];
+
+
+            array_push($items, $item);
+       }
+
+        //$fn = $_POST;
+
+         $things = addfile("todo.txt", $items);
 ?>
 
 <html>
 <head>
-	<title>To-Do List</title>
+    <title>To-Do List</title>
 </head>
 <body>
-	<h2>TODO List</h2>
+    <h2>TODO List</h2>
 
-	<ul>
-	   <?php
+    <ul>
+       <?php
+                foreach ($items as $key =>$thing) { ?>
+                  <!-- echo "<li>$thing <a href='?remove=[$key]'>Remove</a></li>"; -->
+             <li><?php echo $thing; ?> <a href="?remove=<?php echo $key; ?>" >Remove Item</a></li>
+                <?php } 
 
-         $things = addfile("todo.txt", $items);
 
-             foreach ($items as $thing) {
-                 echo "<li>$thing</li>";
-             }
+
+
+             save($items, "todo.txt");
 
 
         ?>
-	</ul>
+    </ul>
 
-	<h2>Things to do...</h2>
-<form method="POST" action="">
-    <p>
-        <label for="errand">To-Do</label>
-        <input id="errand" name="errand" type="text">
-    </p>
-</form>
 <h2>Add file</h2>
 <form method="POST" action="">
-    <p>
-        <label for="errand">To-Do</label>
-        <input id="errand" name="errand" type="text">
-    </p>
+    
+        <input id="newitem" name="newitem" type="text">
+        <input type="submit" value="add">
 </form>
 </body>
 </html>
