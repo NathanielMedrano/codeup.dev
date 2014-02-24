@@ -48,6 +48,14 @@ function save($array, $file) {
         //$fn = $_POST;
 
          $things = addfile("todo.txt", $items);
+
+         if (isset($_GET['remove'])) {
+
+            $itemId = $_GET['remove'];
+            unset($items[$itemId]);
+
+             save($items, "todo.txt");
+         }
 ?>
 
 <html>
@@ -59,15 +67,12 @@ function save($array, $file) {
 
     <ul>
        <?php
-                foreach ($items as $key =>$thing) { ?>
-                  <!-- echo "<li>$thing <a href='?remove=[$key]'>Remove</a></li>"; -->
-             <li><?php echo $thing; ?> <a href="?remove=<?php echo $key; ?>" >Remove Item</a></li>
-                <?php } 
+                foreach ($items as $key =>$thing) { 
+                  echo "<li>$thing <a href=\"?remove=$key\">Remove</a></li>";
+                }
 
 
 
-
-             save($items, "todo.txt");
 
 
         ?>
