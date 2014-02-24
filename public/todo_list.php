@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 
-
-
 <html>
 <head>
 	<title>To-Do List</title>
@@ -10,7 +8,7 @@
 	<h2>TODO List</h2>
 
 	<ul>
-		<?php
+	   <?php
 
         $things = ['mow the lawn', 'wash dishes' ];
 
@@ -24,6 +22,7 @@
         ?>
 	</ul>
 
+ 
 	<h2>Things to do...</h2>
 <form method="POST" action="">
     <p>
