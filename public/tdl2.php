@@ -47,18 +47,24 @@ if (count($_FILES) > 0 && $_FILES['file1']['error'] == 0) {
     // Move the file from the temp location to our uploads directory
     move_uploaded_file($_FILES['file1']['tmp_name'], $saved_filename);
 
+    if ($_FILES['file1']['type'] == "text/plain") {
+      
+
+      if (isset($saved_filename)) {
+
+          echo "<p>You can download your file <a href='/{$filename}'>here</a>.</p>";
+      }
+
+    } else {
+      echo "File type is not text";
+    }
+
     $new_items = loadFile($saved_filename);
     $items = array_merge($items, $new_items);
 
 }
 
 // Check if we saved a file
-if (isset($saved_filename)) {
-
-    var_dump($saved_filename);
-    // If we did, show a link to the uploaded file
-    echo "<p>You can download your file <a href='/{$filename}'>here</a>.</p>";
-}
 
 ?>
 
