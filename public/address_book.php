@@ -19,7 +19,7 @@ function csv($items) {
 
 		$fields = explode(' ', $fields);
 
-		print_r($fields);
+		//print_r($fields);
 	    fputcsv($handle, $fields);
 	}
 
@@ -93,7 +93,16 @@ Phone: <input type="text" name="phone"><br>
 <input type="submit">
 </form>
 
-<?   var_dump($items); ?>
+<table>
+	<tr>
+		<? foreach ($items as $fields => $value) :  ?>
+	    <td><?= $value?></td>
+		<? endforeach; ?>
+	</tr>	
+		
+	
+
+</table>
 
 </body>
 </html>
