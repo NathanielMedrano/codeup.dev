@@ -1,25 +1,12 @@
 <?php
 
- //In the same fashion as your todo.php application, you will want to display your entries at the top of the page, 
- //and have a form below for adding new entries. Each entry should take a name, address, city, state, zip, and phone. 
- //You can use a HTML table or definition lists for displaying the addresses.
-
-
-//Open the CSV file in a spreadsheet program or text editor and verify the contents are what you expect after adding some entries.
-
-//Refactor your code to use functions where applicable.
-
-//Create a function to store a new entry. A new entry should have validate 5 required fields: name, address, city, state, 
-//and zip. Display error if each is not filled out.
-
 function csv($items) {
-	$handle = fopen('add_book1.csv', 'w');
+	$handle = fopen('add_book1.csv', 'a+');
 
 	foreach ($items as $fields) {
 
 		$fields = explode(' ', $fields);
 
-		//print_r($fields);
 	    fputcsv($handle, $fields);
 	}
 
@@ -27,7 +14,10 @@ function csv($items) {
 
 }
 
+
 $items = array();
+
+$errors = array();
 
 if (!empty($_POST["name"])){
 
@@ -82,10 +72,8 @@ if (!empty($_POST["zip"])){
 
   </ul>
 
-
-
 <form action="address_book.php" method="post">
-Name: <input type="text" name="name"><br>
+Name: <input type="text" name="name" > <br>
 Address: <input type="text" name="address"><br>
 City: <input type="text" name="city"><br>
 Zip: <input type="text" name="zip"><br>
