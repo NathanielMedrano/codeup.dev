@@ -12,6 +12,21 @@
 //Create a function to store a new entry. A new entry should have validate 5 required fields: name, address, city, state, 
 //and zip. Display error if each is not filled out.
 
+function csv($items) {
+	$handle = fopen('add_book1.csv', 'w');
+
+	foreach ($items as $fields) {
+
+		$fields = explode(' ', $fields);
+
+		print_r($fields);
+	    fputcsv($handle, $fields);
+	}
+
+	fclose($handle);
+
+}
+
 $items = array();
 
 if (!empty($_POST["name"])){
@@ -50,19 +65,8 @@ if (!empty($_POST["zip"])){
   } 
 
   
-	$handle = fopen('add_book.csv', 'w');
 
-	foreach ($items as $fields) {
-
-		$fields = explode(' ', $fields);
-
-		print_r($fields);
-	    fputcsv($handle, $fields);
-	}
-
-	fclose($handle);
-
-
+	csv($items);
 
 ?>
 
