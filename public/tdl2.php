@@ -86,7 +86,7 @@
 
     <?php foreach ($items as $key => $item) {
 
-      $newTodo = $key + 1;
+      //$newTodo = $key + 1;
       echo "<li>$item <a href='?remove=$key'>Remove Item</a></li>";
 } 
 ?>
@@ -99,7 +99,7 @@
 
 <form method="POST" enctype="multipart/form-data">
     <p>
-        <label for="file1">File to upload: </label>
+        <label >File to upload: </label>
         <input type="file" id="file1" name="file1">
     </p>
     <p>

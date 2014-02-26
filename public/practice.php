@@ -1,33 +1,20 @@
 <?php 
 
-$translate = "ellohay orldway";
+$address_book = [
+    ['The White House', '1600 Pennsylvania Avenue NW', 'Washington', 'DC', '20500'],
+    ['Marvel Comics', 'P.O. Box 1527', 'Long Island City', 'NY', '11101'],
+    ['LucasArts', 'P.O. Box 29901', 'San Francisco', 'CA', '94129-0901']
+];
 
-$response = 'Y';
+$handle = fopen('address_book.csv', 'w');
 
-if ($response == 'Y') {
-		//var_dump($translate);
-		$arr = explode(' ', $translate);
-		//var_dump($arr);
-		$arr_str = $arr;
-		//print_r($arr_str);
-		
-		
+foreach ($address_book as $fields) {
 
-	foreach ($arr_str as $key => $value) {
-		
-		$space = " ";
+	var_dump($fields);
+    fputcsv($handle, $fields);
+}
 
-		$ay = str_replace('ay', $space, $value);
-
-		//$sub = str_replace($last, '', $value);
-		
-		echo $ay;
-		}
-
-
-	} else {
-		echo "Oodgay Yebay!";
-	}
+fclose($handle);
 
 
 ?>
