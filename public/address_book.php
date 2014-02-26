@@ -14,6 +14,14 @@ function csv($items) {
 
 }
 
+function loadFile($filename){
+    $handle = fopen($filename, 'r');
+    $contents = fread($handle, filesize($filename));
+    fclose($handle);
+    return explode("\n", $contents);
+
+  }
+
 
 $items = array();
 
@@ -58,6 +66,8 @@ if (!empty($_POST["zip"])){
 
 	csv($items);
 
+	$test = loadFile('add_book1.csv');
+
 ?>
 
 <html>
@@ -83,7 +93,7 @@ Phone: <input type="text" name="phone"><br>
 
 <table>
 	<tr>
-		<? foreach ($items as $fields => $value) :  ?>
+		<? foreach ($test as $fields => $value) :  ?>
 	    <td><?= $value?></td>
 		<? endforeach; ?>
 	</tr>	
