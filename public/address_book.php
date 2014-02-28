@@ -1,5 +1,15 @@
 <?php
 
+class AddressDataStore {
+
+
+	function __construct($filename = 'address_book1.csv'){
+		$this->filename = $filename;
+	}
+
+    public $filename = '';
+
+
 function csv($items) {
 	$handle = fopen('add_book1.csv', 'a+');
 
@@ -21,7 +31,7 @@ function loadFile($filename){
     return explode("\n", $contents);
 
   }
-
+}
 
 $items = array();
 
@@ -94,7 +104,7 @@ Phone: <input type="text" name="phone"><br>
 <table>
 	<tr>
 		<? foreach ($test as $fields => $value) :  ?>
-	    <td><?= $value?></td>
+	    <td><?= $value;?></td>
 		<? endforeach; ?>
 	</tr>	
 		
