@@ -34,20 +34,4 @@ class Filestore {
         }
 
 
-    /**
-     * Reads contents of csv $this->filename, returns an array
-     */
-    function read_csv()
-    {
-
-    }
-
-    /**
-     * Writes contents of $array to csv $this->filename
-     */
-    function write_csv($array)
-    {
-
-    }
-
 }
