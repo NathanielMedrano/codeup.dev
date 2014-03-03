@@ -2,6 +2,8 @@
 
 require_once('classes/todo_class.php');
 
+$filename = 'address_book.csv';
+
 if (count($_FILES) > 0 && $_FILES['file1']['error'] == 0){
 	if ($_FILES['file1']['type'] != 'text/csv') {
 		$errorMsg = 'Invalid File type';
