@@ -1,0 +1,31 @@
+<html>
+<head>
+	<title>JS Objects</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+
+// todo:
+// Create person object with firstName and lastName properties (set to your first and last name).
+var person = {};
+person.first = "Nathan";
+person.last = "Schumann";
+
+// todo:
+// Add a say hello method to the person object that alerts hello using the firstName and lastName properties.
+// create a logMakeModel method on the car object
+person.logname = function () {
+    console.log('Person\'s name is: ' + this.first + ' ' + this.last);
+};
+
+// log the make/model
+person.logname();
+// Say hello from the person object.
+// person.sayHello();
+
+
+	</script>
+
+</body>
+</html>
