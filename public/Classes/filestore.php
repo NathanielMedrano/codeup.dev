@@ -29,7 +29,11 @@ public $filename = 'address_book.csv';
     }
 
     public function save_file($items) {
-        var_dump($items);
+        //var_dump($items);
+            if (!is_array($items)) {
+                throw new Exception('$items must be a string');
+            }
+            
         $string = implode("\n", $items);
         $handle = fopen($this->filename, 'w');
         fwrite($handle, $string);
@@ -56,7 +60,6 @@ public $filename = 'address_book.csv';
         $handle = fopen($this->filename, "r");
         while (($data = fgetcsv($handle)) !== FALSE) {
             $contents[] = $data;
-            throw new Exception('$filename must be a csv file');
         }
         fclose($handle);
         return $contents;
@@ -73,6 +76,7 @@ public $filename = 'address_book.csv';
             fclose($handle);
         }
 
+   // class UnexpextedTypeExcetion extends Exception {}
 
 
 }

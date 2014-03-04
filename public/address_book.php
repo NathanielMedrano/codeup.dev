@@ -35,7 +35,7 @@ if (count($_FILES) > 0 && $_FILES['file1']['error'] == 0){
 
 <html>
 <head>
-	<title>Addressbook</title>
+	<title>Address book</title>
 </head>
 <body>
 
@@ -44,8 +44,11 @@ if (count($_FILES) > 0 && $_FILES['file1']['error'] == 0){
 	<table>
 			<? foreach ($address_book as $key => $row) { ?> 
 				<tr>
-				<? foreach ($row as $entry) { ?>
-					 <?= "<td>" . htmlspecialchars(strip_tags($entry))  .  "</td>"; } ?>
+					<?  if (!is_string($row)) {
+                throw new Exception('Must be a string');
+            } ?>
+				<? foreach ($row as $entry => $value) { ?>
+					 <?= "<td>" . htmlspecialchars(strip_tags($value))  .  "</td>"; } ?>
 					<td> <a href='?remove=<?=$key ?>'>Remove Item</a></td>
 				<? } ?>
 

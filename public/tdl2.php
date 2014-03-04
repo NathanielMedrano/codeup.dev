@@ -1,7 +1,63 @@
 <?php 
 
   require_once('classes/filestore.php');
-     
+    
+  class UnexpectedTypeException extends Exception{}
+
+  class Conversation {
+
+    // Property to hold name
+    private $name = '';
+
+    /**
+     * Optional - allows name to be passed 
+     * when the class is instantiated
+     */
+    public function __construct($name = '')
+    {
+        $this->set_name($name);
+    }
+
+    /**
+     * Setter for $name
+     * Filters and prepares $name
+     */
+     private function set_name($name) 
+     {
+         // Check if $name is a string
+         if (!is_string($name)) {
+            throw new UnexpectedTypeException('$name must be a string');
+         }
+         // Set the name property
+         // Trim all leading and trailing whitespace 
+         $this->name = trim($name);
+
+     }
+
+    /**
+     * Return the name property in a descriptive string
+     */
+    public function get_name()
+    {
+        // return name with some fluff
+        return "The name property on this instance of this class is '{$this->name}'";
+    }
+
+    /**
+     * Method to say hello to name
+     */
+    public function say_hello($new_line = FALSE) 
+    {
+        // Set the greeting name
+        $greeting = "Hello {$this->name}";
+
+        // Return the greeting, checking for newline
+        return $new_line == TRUE ? "$greeting\n" : $greeting;
+    }
+
+}
+
+
  function save_to_file($filename, $items) {
       $string = implode("\n", $items);
     $handle = fopen($filename, 'w');
@@ -17,6 +73,8 @@
 
   }
 
+
+
     $filename = 'todo.txt';
 
     $handle = fopen($filename, 'r');
@@ -27,6 +85,13 @@
  
   if (!empty($_POST["newitem"])){
     $item = $_POST["newitem"];
+
+    // if (strlen($item) > 25) {
+    //   throw new Exception ("Entry must be less than 25 characters");
+    // }
+
+
+
     array_push($items, $item);
     save_to_file($filename, $items);
   }
@@ -65,6 +130,16 @@
     $items = array_merge($items, $new_items);
 
 }
+
+try {
+    // try as a float (double)
+    $chat = new Conversation(323.32);
+} catch (UnexpectedTypeException $e) {
+    // Try again as a string if double failed
+    $chat = new Conversation("323.32");
+}
+
+echo $chat->say_hello(TRUE);
 
 // Check if we saved a file
 

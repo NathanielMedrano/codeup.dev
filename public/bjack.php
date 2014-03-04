@@ -12,5 +12,9 @@ require_once('classes/bjack_class.php');
 </head>
 <body>
 
+	<form>
+	<input type="button" value="Click me" onclick="msg()">
+	</form>
+
 </body>
 </html>
