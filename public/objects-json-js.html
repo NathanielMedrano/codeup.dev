@@ -52,19 +52,14 @@
         }
     ]
 
-		// log out the books array
-		console.log(books);
-
 		// todo:
 		// Loop through the array of books using .forEach and print out the specified information about each one.
 		books.forEach(function(element,index,array){
-			console.log(element.title);
-			// start loop here
+			
 			var num = index + 1;
 		    console.log("Book #" + num);
 		    console.log("Title: " + element.title);
 		    console.log("Author: " +  element.Author.first + " " + element.Author.last);
-		    console.log();
 		// end loop here
 		});
 		
