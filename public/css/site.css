@@ -1,10 +1,26 @@
 /* 
-multi
-line
-comment
+
+Create an external stylesheet and link it to your todo list page.
+Add a style to change the color of the headers on your page and make them underlined.
+Add a style to change the background color of the page.
+Add a style to change the list-style to something other than the default.
+Add a style to change the font for the entire page.
+
 */
 
 .fancy-header {
     color: blue; /* single line comment */
     text-decoration: underline;
 }
+
+h1{
+	color: #808080;
+	text-decoration: underline;
+}
+
+body { 
+  background-image: url("DSC_3272.JPG") top repeat-y;
+  background-size: 490px;
+}
+
+ul {list-style-type: circle;}

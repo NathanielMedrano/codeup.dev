@@ -1,7 +1,7 @@
 <?php 
 
   require_once('classes/filestore.php');
-    
+
   class UnexpectedTypeException extends Exception{}
 
   class Conversation {
@@ -131,39 +131,29 @@
 
 }
 
-try {
-    // try as a float (double)
-    $chat = new Conversation(323.32);
-} catch (UnexpectedTypeException $e) {
-    // Try again as a string if double failed
-    $chat = new Conversation("323.32");
-}
 
-echo $chat->say_hello(TRUE);
-
-// Check if we saved a file
 
 ?>
 
 <!DOCTYPE html>
 
+<link rel="stylesheet" type="text/css" href="css/site.css">
+
 <html>
 <head>
-  <title>TODO List</title>
+  <title>Todo List</title>
 </head>
 <body>
 
-  <h2>TODO List</h2>
+  <h1>Things to do</h1>
   <ul>
 
 
-<? foreach ($items as $item): ?>
-    <li><?= htmlspecialchars(strip_tags($item)); ?></li>
-<? endforeach; ?>
+    <?php 
 
-    <?php foreach ($items as $key => $item) {
-
+      foreach ($items as $key => $item) {
       //$newTodo = $key + 1;
+      htmlspecialchars(strip_tags($item));
       echo "<li>$item <a href='?remove=$key'>Remove Item</a></li>";
 } 
 ?>
@@ -172,7 +162,7 @@ echo $chat->say_hello(TRUE);
       <input type="text" id="newitem" name="newitem" autofocus="autofocus" placeholder="add item">
       <input type="submit" value="add" >
     </form>
-    <h1>Upload File</h1>
+    <h2>Upload File</h2>
 
 <form method="POST" enctype="multipart/form-data">
     <p>
