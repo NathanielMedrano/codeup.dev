@@ -19,13 +19,13 @@
 
     <button id="btn2">"Change SubHeader to blue"</button>
 
-    <button id="btn3">"Change Header to JavaScript is Cool"</button>
+    <button id="btn3">"Change Item 1 to blue"</button>
 
-    <button id="btn4">"Change Header to JavaScript is Cool"</button>
+    <button id="btn4">"Who reads latin? Its a dead language!"</button>
 
     <script>
 
-     var listener = function (event) {
+     var btn1 = function (event) {
             //alert('You clicked the button!');
          var mainHeader = document.getElementById('main-header');
 
@@ -34,9 +34,9 @@
         }
 
         // register the listener to handle clicks on btn1
-        document.getElementById('btn1').addEventListener('click', listener, false);
+        document.getElementById('btn1').addEventListener('click', btn1, false);
 
-    var listener = function (event) {
+    var btn2 = function (event) {
             
          var subHeader = document.getElementById('sub-header');;
 
@@ -45,10 +45,10 @@
         }
 
         // register the listener to handle clicks on btn1
-        document.getElementById('btn2').addEventListener('click', listener, false);
+        document.getElementById('btn2').addEventListener('click', btn2, false);
 
 
-    var listener = function (event) {
+    var btn3 = function (event) {
             
 
          var listItems = document.getElementsByTagName('li');
@@ -66,13 +66,11 @@
         }
         }
 
-        document.getElementById('btn3').addEventListener('click', listener, false);
+        document.getElementById('btn3').addEventListener('click', btn3, false);
 
-        // todo: get all list items
+     
 
-        // todo: get all elements with class name sub-paragraph
-
-    var listener = function (event) {
+    var btn4 = function (event) {
             
          var subParagraphs = document.getElementsByClassName('sub-paragraph')[0];
 
@@ -82,7 +80,7 @@
         }
 
         // register the listener to handle clicks on btn1
-        document.getElementById('btn4').addEventListener('click', listener, false);
+        document.getElementById('btn4').addEventListener('click', btn4, false);
 
     </script>
 
