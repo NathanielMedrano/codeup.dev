@@ -1,6 +1,38 @@
 <?php 
 
-  require_once('classes/filestore.php');
+  // Get new instance of MySQLi object
+  $mysqli = @new mysqli('127.0.0.1', 'codeup', 'password', 'codeup_mysqli_test_db');
+
+  // Check for errors
+  if ($mysqli->connect_errno) {
+      throw new Exception('Failed to connect to MySQL: (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error);
+  }
+
+  // Retrieve a result set using SELECT
+  if(empty($_GET)){
+    $result = $mysqli->query("SELECT * FROM todo");
+    while ($row[] = $result->fetch_array(MYSQLI_ASSOC)) {}
+      array_pop($row);
+  } else {
+    $result = $mysqli->query("SELECT * FROM todo ORDER BY {$_GET['sort_column']} {$_GET['sort_order']}");
+    while ($row[] = $result->fetch_array(MYSQLI_ASSOC)) {}
+      array_pop($row);
+  }
+
+  $sql="INSERT INTO todo (item)
+  VALUES ('$_POST[item]')";
+
+  if (!mysqli_query($mysqli,$sql))
+    {
+    die('Error: ' . mysqli_error($mysqli));
+    }
+  echo "1 record added";
+
+  // mysqli_query($con,"DELETE FROM todo WHERE item='Griffin'");
+
+  mysqli_close($mysqli);
+
+
 
   class UnexpectedTypeException extends Exception{}
 
@@ -83,8 +115,8 @@
     fclose($handle);
     
  
-  if (!empty($_POST["newitem"])){
-    $item = $_POST["newitem"];
+  if (!empty($_POST["item"])){
+    $item = $_POST["item"];
 
     // if (strlen($item) > 25) {
     //   throw new Exception ("Entry must be less than 25 characters");
@@ -159,7 +191,7 @@
 ?>
   </ul>
     <form method="POST">
-      <input type="text" id="newitem" name="newitem" autofocus="autofocus" placeholder="add item">
+      <input type="text" id="item" name="item" autofocus="autofocus" placeholder="add item">
       <input type="submit" value="add" >
     </form>
     <h2>Upload File</h2>
@@ -173,5 +205,7 @@
         <input type="submit" value="Upload">
     </p>
 </form>
+
+
 </body>
 </html>
