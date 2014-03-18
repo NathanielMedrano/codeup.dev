@@ -20,7 +20,18 @@ if (!empty($_POST)) {
   echo "1 record added";
 
   }
-  // mysqli_query($con,"DELETE FROM todo WHERE item='Griffin'");
+  
+  if (isset($_GET['remove'])) {
+
+    $stmt = $mysqli->prepare("DELETE FROM todo WHERE id = ?");
+
+    $stmt->bind_param("i", $_GET['remove']);
+
+    $stmt->execute();
+
+  }
+
+  $listitem = mysql_query("SELECT id, item FROM todo");
 
   mysqli_close($mysqli);
 
@@ -175,11 +186,9 @@ if (!empty($_POST)) {
 
     <?php 
 
-      foreach ($items as $key => $item) {
-      //$newTodo = $key + 1;
-      htmlspecialchars(strip_tags($item));
-      echo "<li>$item <a href='?remove=$key'>Remove Item</a></li>";
-} 
+    while ($row = mysql_fetch_array($result, MYSQL_NUM)) {
+    printf("id: %s  item: %s", $row[0], $row[1]);  
+    } 
 ?>
   </ul>
     <form method="POST">
