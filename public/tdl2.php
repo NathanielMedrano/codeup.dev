@@ -8,17 +8,8 @@
       throw new Exception('Failed to connect to MySQL: (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error);
   }
 
-  // Retrieve a result set using SELECT
-  if(empty($_GET)){
-    $result = $mysqli->query("SELECT * FROM todo");
-    while ($row[] = $result->fetch_array(MYSQLI_ASSOC)) {}
-      array_pop($row);
-  } else {
-    $result = $mysqli->query("SELECT * FROM todo ORDER BY {$_GET['sort_column']} {$_GET['sort_order']}");
-    while ($row[] = $result->fetch_array(MYSQLI_ASSOC)) {}
-      array_pop($row);
-  }
-
+if (!empty($_POST)) {
+ 
   $sql="INSERT INTO todo (item)
   VALUES ('$_POST[item]')";
 
@@ -28,6 +19,7 @@
     }
   echo "1 record added";
 
+  }
   // mysqli_query($con,"DELETE FROM todo WHERE item='Griffin'");
 
   mysqli_close($mysqli);
