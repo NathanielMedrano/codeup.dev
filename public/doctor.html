@@ -3,24 +3,39 @@
 <html>
 <head>
 	<title></title>
+	<style type="text/css">
+		.clickable {
+			cursor: pointer;
+		}
+	</style>
 	<script src="/js/jquery.js"></script>
 
 	<script type="text/javascript">
 
 		 $('document').ready(function() {
-            $('#list').css('font-size','20px');
-            $('.codeup, li').css('background-color','#FFFF00');
-            var contents = $('h1').html();
-            alert(contents);
+       		$('h1').click(function() {
+                $('h1').css('background-color','#FF0');
+            });
+            $('p').dblclick(function() {
+                $('p').css('font-size','18px');
+            });
+            $('li').hover(
+                function() {
+                    $(this).css('color', '#F00');
+                },
+                function() {
+                    $(this).css('color', '#000');
+                }
+            );
         });
 
 	</script>
 </head>
 <body>
 
-	<h1 class='codeup'>The Regenerations of The Doctor</h1>
+	<h1 class='clickable'>The Regenerations of The Doctor</h1>
 
-	<p class='codeup'>Producers introduced the concept of regeneration to permit the recasting of the main character. This was first prompted by original star William Hartnell's poor health. The actual term "regeneration" was not initially conceived of until the Doctor's third on-screen regeneration however; Hartnell's Doctor had merely described undergoing a "renewal," and the Second Doctor underwent a "change of appearance". The device has allowed for the recasting of the actor various times in the show's history, as well as the depiction of alternative Doctors either from the Doctor's relative past or future.</p>
+	<p class='clickable'>Producers introduced the concept of regeneration to permit the recasting of the main character. This was first prompted by original star William Hartnell's poor health. The actual term "regeneration" was not initially conceived of until the Doctor's third on-screen regeneration however; Hartnell's Doctor had merely described undergoing a "renewal," and the Second Doctor underwent a "change of appearance". The device has allowed for the recasting of the actor various times in the show's history, as well as the depiction of alternative Doctors either from the Doctor's relative past or future.</p>
 <div class='codeup' id='list'>
 	<ul>
 		<li>William Hartnell</li>
