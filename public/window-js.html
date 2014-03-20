@@ -1,37 +1,45 @@
 <html>
 <head>
     <title>Delayed Autosave</title>
+    <script src="/js/jquery.js"></script>
+     <script>
+        $('document').ready(function() {
+            $('#textfield').keyup(function() {
+                alert('.keydown() event fired');
+            });
+        });
+    </script>
 </head>
 <body>
 
     <h2>Autosaving Text Input</h2>
-    <textarea rows="10" cols="60" id="important"></textarea>
+    <textarea rows="10" cols="60" id="textfield"></textarea>
 
-    <script>
+     <script>
 
-   function save() {
-        alert('Saved!');
-   }
+   // function save() {
+   //      alert('Saved!');
+   // }
 
-   var timerId = null;
+   // var timerId = null;
 
-   function autosave () {
+   // function autosave () {
 
-        console.log('autosave called');
+   //      console.log('autosave called');
 
-        clearTimeout(timerId);
+   //      clearTimeout(timerId);
 
-        timerId = setTimeout(function() {
-            save();
-        }, 5000)
-   }
+   //      timerId = setTimeout(function() {
+   //          save();
+   //      }, 5000)
+   // }
 
         
-    var textarea = document.getElementById('important');
-        textarea.addEventListener('keyup', autosave, false);
+   //  var textarea = document.getElementById('important');
+   //      textarea.addEventListener('keyup', autosave, false);
 
 
-    </script>
+     </script>
 
 </body>
 </html>
