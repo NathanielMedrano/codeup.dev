@@ -37,10 +37,13 @@
 
 	  $('document').ready(function() {
 	  		$('dd').addClass('hide');
-
             $('dt').on('click', function() {
-          	$(this).next().toggleClass('hide');
+          		$(this).next().toggleClass('hide');
             });
+          		$('#facts').children().css('font-weight', 'bold');
+          		$('li').click(function(){
+          			$(this).parent().addClass('invisible');
+          		});
         });
 
 	</script>
@@ -48,9 +51,9 @@
 </head>
 <body class="container">
 
-	<h1 class="ctr">National Parks FAQ</h1>
+	<h1>National Parks FAQ</h1>
 
-	<div  class="ctr">
+	<div>
 
 	<dl>
 
@@ -84,6 +87,34 @@
 	
 
 	</dl>
+
+</div>
+
+<div id='facts'>
+
+	<h3>Arches</h3>
+	<ul>
+		<li>Named after the first Cohort of <a href="codeup.com">Codeup</a></li>
+		<li>Has over 2,000 natural stone arches</li>
+		<li>In Utah</li>
+		<li>Is a red rock wonderland</li>
+	</ul>
+
+	<h3>Badlands</h3>
+	<ul>
+		<li>Ancient mammals such as the rhino, horse, and saber-toothed cat once roamed here.</li>
+		<li>Badlands draws visitors from around the world.</li>
+		<li>Where Mufasa died</li>
+		<li>Not far from the elephant graveyard</li>
+	</ul>
+
+	<h3>Yosemite</h3>
+	<ul>
+		<li>Named after Yosemite Sam</li>
+		<li>Best known for its waterfalls</li>
+		<li>Had rocks</li>
+		<li>Is in America</li>
+	</ul>
 
 </div>
 
