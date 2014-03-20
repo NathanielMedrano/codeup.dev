@@ -1,0 +1,47 @@
+
+	.img {
+	
+		background:url(/img/pipeline.jpg);
+		background-repeat:no-repeat;
+		background-size: 110% 150%;
+		background-attachment: fixed;
+		text-align: center
+
+	}
+
+	.mar-pipe {
+		bottom: 100px;
+		left: 40px;
+		position: relative;
+		}
+
+	.mar-img {
+
+		display: none;
+
+	}
+
+	#marONE {
+		left: -100px;
+		bottom: 20px;
+	}
+
+	#marTWO {
+		left: -120px;
+		bottom: -300px;
+	}
+	
+	#marTHREE {
+		left: -460px;
+		bottom: -350px;
+	}
+
+	#marFOUR {
+		left: 220px;
+		bottom: -300px;
+	}
+
+	#marFIVE {
+		left: 500px;
+		bottom: -350px;
+	}

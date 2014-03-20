@@ -7,31 +7,50 @@
  
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" type="text/css" href="css/whack.css">
 	<script src="/js/jquery.js"></script>
-	<style type="text/css">
 
-	.img {
-
-		text-align: center
-
-	}
-
-	</style>
-
-	<script type="text/javascript">
-	$('document').ready(function() {
-            $('#sam').click(function() {
-                $('#sam-img').fadeToggle();
+	<!--  $('document').ready(function() {
+             $('#mar').click(function() {
+                $('#mar-img').slideToggle()
             });
-        });
-	</script>
+         }); -->
 
 </head>
 <body class='img'>
 
-<h1 id='sam'>Yosemite Sam</h1>
+<h1 id='mar'>The Fastest Plumber</h1>
 
-<img id='sam-img' src="img/images.jpeg" alt="Smiley face" height="126" width="126">
+<div class='mar-pipe' id='marONE' >
+	<img class='mar-img' src="img/mario.png" alt="Ellusive Mario" height="126" width="126">
+</div>
+
+<div class='mar-pipe' id='marTWO' >
+	<img class='mar-img' src="img/mario.png" alt="Ellusive Mario" height="126" width="126">
+</div>
+
+<div class='mar-pipe' id='marTHREE' >
+	<img class='mar-img' src="img/mario.png" alt="Ellusive Mario" height="126" width="126">
+</div>
+
+<div class='mar-pipe' id='marFOUR' >
+	<img class='mar-img' src="img/mario.png" alt="Ellusive Mario" height="126" width="126">
+</div>
+
+<div class='mar-pipe' id='marFIVE' >
+	<img class='mar-img' src="img/mario.png" alt="Ellusive Mario" height="126" width="126">
+</div>
+
+<script>
+
+	var pipe = $('.mar-pipe');
+	var rand = Math.floor(Math.random() * pipe.length);
+	console.log(rand);
+	$(pipe[rand]).children().fadeIn();
+
+
+</script>
+
 
 </body>
 </html>
