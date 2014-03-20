@@ -44,10 +44,11 @@
 <script>
 
 	var pipe = $('.mar-pipe');
+	setInterval(function() {
+	$('.mar-pipe').children().fadeOut();
 	var rand = Math.floor(Math.random() * pipe.length);
-	console.log(rand);
 	$(pipe[rand]).children().fadeIn();
-
+	 }, 1000);
 
 </script>
 
