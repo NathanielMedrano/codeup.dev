@@ -43,13 +43,13 @@
           		$('#facts').children().css('font-weight', 'bold');
           
           			 $('#arc-tog').click(function() {
-					    $('#arc').toggle();
+					    $('#arc').fadeToggle();
 					    });
 						    $('#bad-tog').click(function() {
-						    $('#bad').toggle();
+						    $('#bad').fadeToggle();
 						    });
 						    	$('#yos-tog').click(function() {
-						   		$('#yos').toggle();
+						   		$('#yos').fadeToggle();
 						   		});
         });
 
@@ -98,6 +98,8 @@
 </div>
 
 <div id='facts'>
+
+	<h1>Random Facts</h1>
 
 	<h3 id='arc-tog'>Arches</h3>
 	<ul id='arc'>
