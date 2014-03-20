@@ -41,9 +41,16 @@
           		$(this).next().toggleClass('hide');
             });
           		$('#facts').children().css('font-weight', 'bold');
-          		$('li').click(function(){
-          			$(this).parent().addClass('invisible');
-          		});
+          
+          			 $('#arc-tog').click(function() {
+					    $('#arc').toggle();
+					    });
+						    $('#bad-tog').click(function() {
+						    $('#bad').toggle();
+						    });
+						    	$('#yos-tog').click(function() {
+						   		$('#yos').toggle();
+						   		});
         });
 
 	</script>
@@ -92,24 +99,24 @@
 
 <div id='facts'>
 
-	<h3>Arches</h3>
-	<ul>
+	<h3 id='arc-tog'>Arches</h3>
+	<ul id='arc'>
 		<li>Named after the first Cohort of <a href="codeup.com">Codeup</a></li>
 		<li>Has over 2,000 natural stone arches</li>
 		<li>In Utah</li>
 		<li>Is a red rock wonderland</li>
 	</ul>
 
-	<h3>Badlands</h3>
-	<ul>
+	<h3 id='bad-tog'>Badlands</h3>
+	<ul id='bad'>
 		<li>Ancient mammals such as the rhino, horse, and saber-toothed cat once roamed here.</li>
 		<li>Badlands draws visitors from around the world.</li>
 		<li>Where Mufasa died</li>
 		<li>Not far from the elephant graveyard</li>
 	</ul>
 
-	<h3>Yosemite</h3>
-	<ul>
+	<h3 id='yos-tog'>Yosemite</h3>
+	<ul id='yos'>
 		<li>Named after Yosemite Sam</li>
 		<li>Best known for its waterfalls</li>
 		<li>Had rocks</li>
