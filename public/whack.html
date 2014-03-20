@@ -2,11 +2,12 @@
 
 <html>
 <head>
-	<title>Whack-A-Sam!</title>
+	<title>Whack-A-Plumber!</title>
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
  
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="css/animations.css">
 	<link rel="stylesheet" type="text/css" href="css/whack.css">
 	<script src="/js/jquery.js"></script>
 
@@ -19,7 +20,9 @@
 </head>
 <body class='img'>
 
-<h1 id='mar'>The Fastest Plumber</h1>
+<h1 id="animated-example" class="bigEntrance">The Fastest Plumber</h1>
+
+<button id='bttn' type="button" class="btn btn-lg">Play Game!</button>
 
 <div class='mar-pipe' id='marONE' >
 	<img class='mar-img' src="img/mario.png" alt="Ellusive Mario" height="126" width="126">
@@ -41,15 +44,18 @@
 	<img class='mar-img' src="img/mario.png" alt="Ellusive Mario" height="126" width="126">
 </div>
 
+
 <script>
 
-	var pipe = $('.mar-pipe');
-	setInterval(function() {
-	$('.mar-pipe').children().fadeOut();
-	var rand = Math.floor(Math.random() * pipe.length);
-	$(pipe[rand]).children().fadeIn();
-	 }, 1000);
-
+	$('#bttn').on('click', function() {
+		$('#bttn').hide();
+		var pipe = $('.mar-pipe');
+		setInterval(function() {
+		$('.mar-pipe').children().fadeOut();
+		var rand = Math.floor(Math.random() * pipe.length);
+		$(pipe[rand]).children().fadeIn();
+		 }, 1000);
+	});
 </script>
 
 
