@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
 	<link rel="stylesheet" href="css/animations.css">
 	<link rel="stylesheet" type="text/css" href="css/whack.css">
+
 	<script src="/js/jquery.js"></script>
 
 </head>
@@ -19,12 +20,13 @@
 <button id='bttn' type="button" class="btn-primary btn-default">Play Game!</button>
 
 
+
 <h2></h2>
 <h3></h3>
 <button id='pa' type="button" class="btn-primary btn-default">Play Again!</button>
 
 <div class='mar-pipe' id='marONE' >
-	<img class='mar-img' src="img/mario.png" alt="Ellusive Mario" height="7%" width="7%">
+	<img class='mar-img' src="img/mario.png" alt="Ellusive Mario" height="7%" width="7%"> 
 </div>
 
 <div class='mar-pipe' id='marTWO' >
@@ -46,15 +48,14 @@
 
 <script>
 
-	var score =0;
+	var score = 0;
 	var game;
 	var counter;
 
 	var playGame = function() {
 
 		score = 0;
-		counter = 5;
-
+		counter = 20;
 		$('#bttn').hide();
 		$('#pa').hide();
 		$('#h3').hide();
@@ -63,9 +64,10 @@
 		var pipe = $('.mar-pipe');
 
 		game = setInterval(function() {
+
 			$('.mar-pipe').children().fadeOut();
 			var rand = Math.floor(Math.random() * pipe.length);
-			console.log(rand);
+
 			$(pipe[rand]).children().slideUp();
 			$('h3').html("Time Left: " + counter--);
 
@@ -78,16 +80,16 @@
 			}
 		
 
+		console.log(score);
 		 }, 1000);
-		
-		$( ".mar-img" ).click(function() {
-				score++;
- 				$( ".mar-pipe" ).children().fadeOut();
- 				$("h2").html("Score: " + score);
-		});
 
 	};
 
+	$( ".mar-img" ).click(function() {
+		++score;
+ 		$( ".mar-pipe" ).children().fadeOut();
+ 		$("h2").html("Score: " + score);
+	});
 
 	$('#bttn').on('click', playGame);
 
