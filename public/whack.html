@@ -11,12 +11,6 @@
 	<link rel="stylesheet" type="text/css" href="css/whack.css">
 	<script src="/js/jquery.js"></script>
 
-	<!--  $('document').ready(function() {
-             $('#mar').click(function() {
-                $('#mar-img').slideToggle()
-            });
-         }); -->
-
 </head>
 <body class='img'>
 
@@ -24,7 +18,10 @@
 
 <button id='bttn' type="button" class="btn-primary btn-default">Play Game!</button>
 
+
 <h2></h2>
+<h3></h3>
+<button id='pa' type="button" class="btn-primary btn-default">Play Again!</button>
 
 <div class='mar-pipe' id='marONE' >
 	<img class='mar-img' src="img/mario.png" alt="Ellusive Mario" height="7%" width="7%">
@@ -48,21 +45,38 @@
 
 
 <script>
-	
-	var score = 0;
-	var game;
 
-	$('#bttn').on('click', function() {
+	var score;
+	var game;
+	var counter;
+
+	var playGame = function() {
+
+		score = 0;
+		counter = 5;
+
 		$('#bttn').hide();
+		$('#pa').hide();
+		$('#h3').hide();
 		$('#animated-example').fadeOut();
 		$('h2').fadeIn();
 		var pipe = $('.mar-pipe');
-		
+
 		game = setInterval(function() {
 			$('.mar-pipe').children().fadeOut();
 			var rand = Math.floor(Math.random() * pipe.length);
 			console.log(rand);
 			$(pipe[rand]).children().slideUp();
+			$('h3').html("Time Left: " + counter--);
+
+			if (counter <= 0) {
+				clearInterval(game);
+				$("h2").html("Good Game!");	
+				$("h3").html("Final Score: " + score);	
+				$('#pa').show();
+				$( ".mar-pipe" ).children().fadeOut();
+			}
+
 		 }, 1000);
 		
 		$( ".mar-img" ).click(function() {
@@ -71,12 +85,12 @@
  				$("h2").html("Score: " + score);
 		});
 
-		setTimeout(function() {
-			clearInterval(game);
-			}, 5000);
+	};
 
-		console.log("end game");
-	});
+
+	$('#bttn').on('click', playGame);
+
+ 	$('#pa').on('click', playGame);
 		
 </script>
 

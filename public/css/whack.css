@@ -1,4 +1,10 @@
 
+/*	.custom {
+		
+   		cursor: url(images/my-cursor.png), auto;
+		
+		}*/
+
 	h1	{
 
 		font-size:300%;
@@ -8,10 +14,17 @@
 
 	h2 {
 
+		font-size:300%;
+		font-weight:bold;
 		display: none;
 
 	}
 
+	#pa {
+
+		display: none;
+
+	}
 
 	.img {
 	
