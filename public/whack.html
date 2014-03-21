@@ -24,39 +24,58 @@
 
 <button id='bttn' type="button" class="btn-primary btn-default">Play Game!</button>
 
+<h2></h2>
+
 <div class='mar-pipe' id='marONE' >
-	<img class='mar-img' src="img/mario.png" alt="Ellusive Mario" height="126" width="126">
+	<img class='mar-img' src="img/mario.png" alt="Ellusive Mario" height="7%" width="7%">
 </div>
 
 <div class='mar-pipe' id='marTWO' >
-	<img class='mar-img' src="img/mario.png" alt="Ellusive Mario" height="126" width="126">
+	<img class='mar-img' src="img/mario.png" alt="Ellusive Mario" height="6%" width="6%">
 </div>
 
 <div class='mar-pipe' id='marTHREE' >
-	<img class='mar-img' src="img/mario.png" alt="Ellusive Mario" height="126" width="126">
+	<img class='mar-img' src="img/mario.png" alt="Ellusive Mario" height="7%" width="7%">
 </div>
 
 <div class='mar-pipe' id='marFOUR' >
-	<img class='mar-img' src="img/mario.png" alt="Ellusive Mario" height="126" width="126">
+	<img class='mar-img' src="img/mario.png" alt="Ellusive Mario" height="15%" width="15%">
 </div>
 
 <div class='mar-pipe' id='marFIVE' >
-	<img class='mar-img' src="img/mario.png" alt="Ellusive Mario" height="126" width="126">
+	<img class='mar-img' src="img/mario.png" alt="Ellusive Mario" height="40%" width="40%">
 </div>
 
 
 <script>
 	
-	
+	var score = 0;
+	var game;
+
 	$('#bttn').on('click', function() {
 		$('#bttn').hide();
+		$('#animated-example').fadeOut();
+		$('h2').fadeIn();
 		var pipe = $('.mar-pipe');
-		setInterval(function() {
-		$('.mar-pipe').children().fadeOut();
-		var rand = Math.floor(Math.random() * pipe.length);
-		console.log(rand);
-		$(pipe[rand]).children().fadeIn();
+		
+		game = setInterval(function() {
+			$('.mar-pipe').children().fadeOut();
+			var rand = Math.floor(Math.random() * pipe.length);
+			console.log(rand);
+			$(pipe[rand]).children().slideUp();
 		 }, 1000);
+		
+		$( ".mar-img" ).click(function() {
+				score++;
+ 				$( ".mar-pipe" ).children().fadeOut();
+ 				$("h2").html("Score: " + score);
+		});
+
+		setTimeout(function() {
+			clearInterval(game);
+			}, 5000);
+
+		console.log("end game");
 	});
 		
 </script>
