@@ -22,7 +22,7 @@
 
 <h1 id="animated-example" class="bigEntrance">The Fastest Plumber</h1>
 
-<button id='bttn' type="button" class="btn btn-lg">Play Game!</button>
+<button id='bttn' type="button" class="btn-primary btn-default">Play Game!</button>
 
 <div class='mar-pipe' id='marONE' >
 	<img class='mar-img' src="img/mario.png" alt="Ellusive Mario" height="126" width="126">
@@ -46,16 +46,19 @@
 
 
 <script>
-
+	
+	
 	$('#bttn').on('click', function() {
 		$('#bttn').hide();
 		var pipe = $('.mar-pipe');
 		setInterval(function() {
 		$('.mar-pipe').children().fadeOut();
 		var rand = Math.floor(Math.random() * pipe.length);
+		console.log(rand);
 		$(pipe[rand]).children().fadeIn();
 		 }, 1000);
 	});
+		
 </script>
 
 
